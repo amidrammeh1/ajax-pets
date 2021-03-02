@@ -1,10 +1,10 @@
-
 <!doctype html>
     <html>
     <head>
  
    <meta name="robots" content="noindex,nofollow">
    <title>AJAX Pet Starter</title>
+   <link rel="stylesheet" href="css/styles.css">
    <script src="https://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
    <script type="text/javascript">
        $("document").ready(function(){
@@ -12,6 +12,9 @@
         //hides second and third question on page load
         $("#pet_likes").hide();
         $("#pet_eats").hide();
+        $("#pet_name").hide();
+
+
 
         $("#pet_feels").click(function(e){
             //alert("Feels is clicked!");
@@ -24,15 +27,24 @@
             
         })
 
+        $("#pet_eats").click(function(e){
+            $("#pet_name").slideDown(200);
+            
+        })
+
+
            $('#myForm').submit(function(e){
                // here are the selections made by the user
                let feels = $("input[name=feels]:checked").val();
                let likes = $("input[name=likes]:checked").val();
                let eats = $("input[name=eats]:checked").val();
                let pet = "";//will store our pet
+               let names = ""; //will store our pet name
                let pic = "";//will be pic of pet delivered by AJAX
                //alert(eats);
 
+          
+               
                 if(feels == "fluffy" && likes == "petted" && eats == "carrots"){
                     pet = "rabbit";
                 }
